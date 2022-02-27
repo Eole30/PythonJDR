@@ -4,6 +4,7 @@
   "level": 4,
   "race": "Wood Elf",
   "speed": 35,
+  "hit_points": 30,
   "hit_points_max": 32,
   "armor_class": 15,
   "strength": 10,

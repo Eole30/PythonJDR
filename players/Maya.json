@@ -1,0 +1,16 @@
+{
+  "name": "Maya",
+  "pc_class": "Bard",
+  "level": 4,
+  "race": "Human",
+  "speed": 30,
+  "hit_points": 30,
+  "hit_points_max": 35,
+  "armor_class": 17,
+  "strength": 13,
+  "dexterity": 18,
+  "constitution": 14,
+  "intelligence": 14,
+  "wisdom": 12,
+  "charisma": 19
+}
