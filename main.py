@@ -41,8 +41,30 @@ class Player:
             self.intelligence = dic_player["intelligence"]
             self.wisdom = dic_player["wisdom"]
             self.charisma = dic_player["charisma"]
-        except FileNotFoundException:
+        except FileNotFoundError:
             print(file_path + " not found")
+
+    def save_player(self):
+        file_path = PLAYER_DIR + self.name + ".json"
+        f = open(file_path, "w")
+        parsed = {
+            "name": self.name,
+            "pc_class": self.pc_class,
+            "level": self.level,
+            "race": self.race,
+            "speed": self.speed,
+            "hit_points": self.hit_points,
+            "hit_points_max": self.hit_points_max,
+            "armor_class": self.armor_class,
+            "strength": self.strength,
+            "dexterity": self.dexterity,
+            "constitution": self.constitution,
+            "intelligence": self.intelligence,
+            "wisdom": self.wisdom,
+            "charisma": self.charisma
+        }
+        f.write(json.dumps(parsed))
+        f.close()
 
     def __str__(self):
         return "%s - level %d %s\n\t%s\n\tSpeed %dft\n\tHP %d / %d\n\tAC %d \n\tSTR %d | DEX %d | CON %d | INT %d | WIS %d | CHA %d\n" % (
@@ -73,6 +95,15 @@ class Campaign:
         except FileNotFoundError:
             print(file_path + " not found")
 
+    def save_campaign(self):
+        file_path = CAMPAIGN_DIR + self.campaign_name + ".json"
+        f = open(file_path, "w")
+        parsed = {}
+        for key in self.players:
+            parsed[key] = self.players[key].hit_points
+        f.write(json.dumps(parsed))
+        f.close()
+
     def __str__(self):
         res = "Campaign %s\n" % self.campaign_name
         for key in self.players:
@@ -84,8 +115,12 @@ player = Player("Even")
 print(player)
 player.load_player()
 print(player)
+player.speed = 34
+player.save_player()
 
 campaign = Campaign("Test")
-campaign.add_player(player)
 campaign.load_campaign()
+player.hit_points = 10
+campaign.add_player(player)
+campaign.save_campaign()
 print(campaign)
