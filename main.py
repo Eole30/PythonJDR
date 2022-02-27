@@ -124,3 +124,41 @@ player.hit_points = 10
 campaign.add_player(player)
 campaign.save_campaign()
 print(campaign)
+
+#partie UI
+#----------------------------------------------------------------------------------------------------------------------------------------------------------------
+from tkinter import *
+from UI.accueil_frame import Accueil
+
+class Main:
+    def __init__(self):
+        self.window = Tk()
+        self.window.title("JDR Manager")
+        self.window.geometry("1280x720")
+        self.window.minsize(1280, 720)
+        self.window.iconbitmap("UI/ressource/D_D5_logo.ico")
+        self.window.config(bg='#41B77F')
+        self.accueil = Accueil(self.window)
+
+
+
+    def open_new_campagne(self):
+        print("new_campagne")
+        self.reset_frame()
+
+    def open_campagne(self):
+        print("campagne")
+        self.reset_frame()
+
+    def open_new_personnage(self):
+        print("new_personnage")
+        self.reset_frame()
+
+    def set_links(self):
+        self.links = {
+            open_new_campagne,
+            open_campagne,
+            open_new_personnage}
+
+main = Main()
+main.window.mainloop()

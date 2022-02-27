@@ -1,20 +1,12 @@
 from tkinter import *
 
-import UI.accueil
 
-class Controlleur:
+import UI.accueil_frame
+
 
 class Accueil:
-
-    def __init__(self):
-        self.window = Tk()
-        self.window.title("JDR Manager")
-        self.window.geometry("1280x720")
-        self.window.minsize(1280, 720)
-        self.window.iconbitmap("ressource/D_D5_logo.ico")
-        self.window.config(bg='#41B77F')
-
-
+    def __init__(self, window):
+        self.window = window
         # initialization des composants
         self.frame = Frame(self.window, bg='#41B77F')
 
@@ -29,17 +21,9 @@ class Accueil:
         self.frame = Frame(self.window, bg='#FF0000')
         self.frame.pack(expand=YES)
 
-    def open_new_campagne(self):
-        print("new_campagne")
-        self.reset_frame()
 
-    def open_campagne(self):
-        print("campagne")
-        self.reset_frame()
 
-    def open_new_personnge(self):
-        print("new_personnage")
-        self.reset_frame()
+
 
     def create_widgets(self):
         self.create_title()
@@ -64,10 +48,9 @@ class Accueil:
 
     def create_new_player_button(self):
         new_player_button = Button(self.frame, text="Crée un nouveau joueur", font=("Courrier", 25), bg='white',
-                                   fg='#41B77F', command=self.open_new_personnge)
+                                   fg='#41B77F', command=self.open_new_personnage)
         new_player_button.pack(pady=25, fill=X)
 
 
 # afficher
-UI.accueil = Accueil()
-UI.accueil.window.mainloop()
+
