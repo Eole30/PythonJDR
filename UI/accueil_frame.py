@@ -5,8 +5,9 @@ import UI.accueil_frame
 
 
 class Accueil:
-    def __init__(self, window):
+    def __init__(self, window, links):
         self.window = window
+        self.links = links
         # initialization des composants
         self.frame = Frame(self.window, bg='#41B77F')
 
@@ -18,12 +19,8 @@ class Accueil:
 
     def reset_frame(self):
         self.frame.destroy()
-        self.frame = Frame(self.window, bg='#FF0000')
+        self.frame = Frame(None, bg='#FF0000')
         self.frame.pack(expand=YES)
-
-
-
-
 
     def create_widgets(self):
         self.create_title()
@@ -38,17 +35,17 @@ class Accueil:
 
     def create_new_campagne_button(self):
         new_campagne_button = Button(self.frame, text="Crée une nouvelle campagne", font=("Courrier", 25), bg='white',
-                                     fg='#41B77F', command=self.open_new_campagne)
+                                     fg='#41B77F', command=self.links['open_new_campagne'])
         new_campagne_button.pack(pady=25, fill=X)
 
     def load_campagne_button(self):
         load_campagne_button = Button(self.frame, text="Chargé une campagne", font=("Courrier", 25), bg='white',
-                                      fg='#41B77F', command=self.open_campagne)
+                                      fg='#41B77F', command=self.links['open_campagne'])
         load_campagne_button.pack(pady=25, fill=X)
 
     def create_new_player_button(self):
         new_player_button = Button(self.frame, text="Crée un nouveau joueur", font=("Courrier", 25), bg='white',
-                                   fg='#41B77F', command=self.open_new_personnage)
+                                   fg='#41B77F', command=self.links['open_new_personnage'])
         new_player_button.pack(pady=25, fill=X)
 
 
