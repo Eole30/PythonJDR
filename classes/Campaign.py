@@ -1,5 +1,5 @@
 CAMPAIGN_DIR = "./campaigns/"
-from classes import Player as P
+from classes.Player import Player
 import json
 class Campaign:
     def __init__(self, campaign_name):
@@ -16,7 +16,7 @@ class Campaign:
             dic_campaign = json.load(f)
             f.close()
             for key in dic_campaign:
-                new_player = P.Player(key)
+                new_player = Player(key)
                 new_player.load_player()
                 new_player.hit_points = dic_campaign[key]
                 self.add_player(new_player)

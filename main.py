@@ -1,18 +1,16 @@
 
 
-from classes import Player as P
-from classes import Campaign as C
-
+from classes.Player import Player
+from classes.Campaign import Campaign
 ##tests d'appels
-
-player = P.Player("Even")
+player = Player("Even")
 print(player)
 player.load_player()
 print(player)
 player.speed = 34
 player.save_player()
 
-campaign = C.Campaign("Test")
+campaign = Campaign("Test")
 campaign.load_campaign()
 player.hit_points = 10
 campaign.add_player(player)
