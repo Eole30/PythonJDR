@@ -1,5 +1,5 @@
 from classes.Player import Player
-import json
+import json, os
 CAMPAIGN_DIR = "./campaigns/"
 class Campaign:
     def __init__(self, campaign_name):
@@ -31,6 +31,14 @@ class Campaign:
             parsed[key] = self.players[key].hit_points
         f.write(json.dumps(parsed))
         f.close()
+        print("Campaign saved")
+
+    def delete_campaign(self):
+        file_path = CAMPAIGN_DIR + self.campaign_name + ".json"
+        if os.path.exists(file_path):
+            os.remove(file_path)
+        else:
+            print("No campaign saved to this name")
 
     def __str__(self):
         res = "Campaign %s\n" % self.campaign_name

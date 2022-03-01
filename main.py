@@ -19,6 +19,8 @@ campaign.add_player(player)
 campaign.save_campaign()
 print(campaign)
 
+campaign2 = Campaign("Test2")
+campaign2.delete_campaign()
 ##
 # partie UI
 

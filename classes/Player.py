@@ -1,6 +1,5 @@
 PLAYER_DIR = "./players/"
-import json
-import os
+import json, os
 class Player:
     def __init__(self, name):
         self.name = name
@@ -68,7 +67,7 @@ class Player:
         if os.path.exists(file_path):
             os.remove(file_path)
         else:
-            print("No player saved with this name")
+            print("No player saved to this name")
 
     def __str__(self):
         return "%s - level %d %s\n\t%s\n\tSpeed %dft\n\tHP %d / %d\n\tAC %d \n\tSTR %d | DEX %d | CON %d | INT %d | WIS %d | CHA %d\n" % (
