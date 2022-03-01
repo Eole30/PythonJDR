@@ -1,6 +1,6 @@
-CAMPAIGN_DIR = "./campaigns/"
 from classes.Player import Player
 import json
+CAMPAIGN_DIR = "./campaigns/"
 class Campaign:
     def __init__(self, campaign_name):
         self.players = {}

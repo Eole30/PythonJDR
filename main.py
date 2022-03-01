@@ -9,6 +9,8 @@ player.load_player()
 print(player)
 player.speed = 34
 player.save_player()
+player2 = Player("Dude")
+player2.delete_player()
 
 campaign = Campaign("Test")
 campaign.load_campaign()
@@ -19,7 +21,6 @@ print(campaign)
 
 ##
 # partie UI
-
 
 from tkinter import *
 from UI.accueil_frame import Accueil
