@@ -3,13 +3,13 @@ from classes.Campaign import Campaign
 
 ##tests d'appels
 
-player = Player.load_player("Vincent")
-print(player)
-player.speed = 34
-player.save_player()
+#player = Player.load_player("Vincent")
+#print(player)
+#player.speed = 34
+#player.save_player()
 
-campaign = Campaign.load_campaign("Test")
-player.hit_points = 10
+#campaign = Campaign.load_campaign("Test")
+#player.hit_points = 10
 #campaign.add_player(player)
 #campaign.save_campaign()
 #print(campaign)
@@ -19,7 +19,7 @@ player.hit_points = 10
 
 from tkinter import *
 from UI.accueil_frame import Accueil_Frame
-from UI.new_personnage_frame import New_Personnage_Frame
+from UI.new_player_frame import New_Personnage_Frame
 from UI.new_campaign_frame import New_Campaign_Frame
 from UI.load_campaign_frame import Load_Campaign_Frame
 from UI.campaign_frame import Campaign_Frame
@@ -29,10 +29,11 @@ class Main:
         self.window = Tk()
         self.window.grid_columnconfigure(0,weight = 1)
         self.window.grid_rowconfigure(0,weight = 1)
+        self.window.config(bg = "#000000")
         self.window.title("JDR Manager")
         self.window.geometry("1280x720")
         self.window.minsize(1280, 720)
-        self.window.iconbitmap("UI/ressource/D_D5_logo.ico")
+        #self.window.iconbitmap("UI/ressource/D_D5_logo.ico")
         #self.window.config(bg='#41B77F')
         self.links = {
             'open_new_campaign': self.open_new_campaign,

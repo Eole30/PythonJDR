@@ -5,7 +5,7 @@ class New_Personnage_Frame:
     def __init__(self, window, links):
         self.window = window
         self.links = links
-        self.frame = Frame(self.window, bg='#FF0000')
+        self.frame = Frame(self.window, bg='#000000')
         self.name = StringVar()
         self.pc_class = StringVar()
         self.level = IntVar()
@@ -31,46 +31,46 @@ class New_Personnage_Frame:
 
     def labels(self):
         font = ("Courrier", 20)
-        label_name = Label(self.frame, text="name : ", font=font, bg='#41B77F',fg='white')
+        label_name = Label(self.frame, text="name : ", font=font, bg='#000000',fg='white')
         label_name.grid(column=0,row=0,sticky="e")
 
-        label_pc_class = Label(self.frame, text="pc_class : ", font=font, bg='#41B77F',fg='white')
+        label_pc_class = Label(self.frame, text="pc_class : ", font=font, bg='#000000',fg='white')
         label_pc_class.grid(column=0, row=1,sticky="e")
 
-        label_level = Label(self.frame, text="level : ", font=font, bg='#41B77F',fg='white')
+        label_level = Label(self.frame, text="level : ", font=font, bg='#000000',fg='white')
         label_level.grid(column=0, row=2,sticky="e")
 
-        label_race = Label(self.frame, text="race : ", font=font, bg='#41B77F',fg='white')
+        label_race = Label(self.frame, text="race : ", font=font, bg='#000000',fg='white')
         label_race.grid(column=0, row=3,sticky="e")
 
-        label_speed = Label(self.frame, text="speed : ", font=font, bg='#41B77F',fg='white')
+        label_speed = Label(self.frame, text="speed : ", font=font, bg='#000000',fg='white')
         label_speed.grid(column=0, row=4,sticky="e")
 
-        label_hit_points = Label(self.frame, text="hit_points : ", font=font, bg='#41B77F',fg='white')
+        label_hit_points = Label(self.frame, text="hit_points : ", font=font, bg='#000000',fg='white')
         label_hit_points.grid(column=0, row=5,sticky="e")
 
-        label_hit_points_max = Label(self.frame, text="hit_points_max : ", font=font, bg='#41B77F',fg='white')
+        label_hit_points_max = Label(self.frame, text="hit_points_max : ", font=font, bg='#000000',fg='white')
         label_hit_points_max.grid(column=0, row=6,sticky="e")
 
-        label_armor_class = Label(self.frame, text="armor_class : ", font=font, bg='#41B77F',fg='white')
+        label_armor_class = Label(self.frame, text="armor_class : ", font=font, bg='#000000',fg='white')
         label_armor_class.grid(column=0, row=7,sticky="e")
 
-        label_strength = Label(self.frame, text="strength : ", font=font, bg='#41B77F',fg='white')
+        label_strength = Label(self.frame, text="strength : ", font=font, bg='#000000',fg='white')
         label_strength.grid(column=0, row=8,sticky="e")
 
-        label_dexterity = Label(self.frame, text="dexterity : ", font=font, bg='#41B77F',fg='white')
+        label_dexterity = Label(self.frame, text="dexterity : ", font=font, bg='#000000',fg='white')
         label_dexterity.grid(column=0, row=9,sticky="e")
 
-        label_constitution = Label(self.frame, text="constitution : ", font=font, bg='#41B77F',fg='white')
+        label_constitution = Label(self.frame, text="constitution : ", font=font, bg='#000000',fg='white')
         label_constitution.grid(column=0, row=10,sticky="e")
 
-        label_intelligence = Label(self.frame, text="intelligence : ", font=font, bg='#41B77F',fg='white')
+        label_intelligence = Label(self.frame, text="intelligence : ", font=font, bg='#000000',fg='white')
         label_intelligence.grid(column=0, row=11,sticky="e")
 
-        label_wisdom = Label(self.frame, text="wisdom : ", font=font, bg='#41B77F',fg='white')
+        label_wisdom = Label(self.frame, text="wisdom : ", font=font, bg='#000000',fg='white')
         label_wisdom.grid(column=0, row=12,sticky="e")
 
-        label_charisma = Label(self.frame, text="charisma : ", font=font, bg='#41B77F',fg='white')
+        label_charisma = Label(self.frame, text="charisma : ", font=font, bg='#000000',fg='white')
         label_charisma.grid(column=0, row=13,sticky="e")
 
     def entrys(self):
@@ -117,8 +117,8 @@ class New_Personnage_Frame:
         entry_charisma.grid(column=1, row=13,sticky="e")
 
     def button_submit(self):
-        submit_button = Button(self.frame, text="Create", font=("Courrier", 25), bg='white',
-                               fg='#41B77F', command=self.create_player)
+        submit_button = Button(self.frame, text="Create", font=("Courrier", 25), bg='#000000',
+                               fg='white', command=self.create_player)
         submit_button.grid(column=0, columnspan=2, row=13,sticky="ew")
 
 
