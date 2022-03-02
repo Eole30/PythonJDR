@@ -1,5 +1,5 @@
 PLAYER_DIR = "./players/"
-import json
+import json, os
 class Player:
     def __init__(self, name, level, pc_class, race, speed, hit_points, hit_points_max, armor_class, strength, dexterity, constitution, intelligence, wisdom, charisma):
         self.name = name
@@ -55,6 +55,13 @@ class Player:
         }
         f.write(json.dumps(parsed))
         f.close()
+
+    def delete_player(self):
+        file_path = PLAYER_DIR + self.name + ".json"
+        if os.path.exists(file_path):
+            os.remove(file_path)
+        else:
+            print("No player saved to this name")
 
     def __str__(self):
         return "%s - level %d %s\n\t%s\n\tSpeed %dft\n\tHP %d / %d\n\tAC %d \n\tSTR %d | DEX %d | CON %d | INT %d | WIS %d | CHA %d\n" % (
