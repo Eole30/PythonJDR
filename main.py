@@ -33,7 +33,7 @@ class Main:
         self.window.title("JDR Manager")
         self.window.geometry("1280x720")
         self.window.minsize(1280, 720)
-        #self.window.iconbitmap("UI/ressource/D_D5_logo.ico")
+        self.window.iconbitmap("UI/ressource/D_D5_logo.ico")
         #self.window.config(bg='#41B77F')
         self.links = {
             'open_new_campaign': self.open_new_campaign,
