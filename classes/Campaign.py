@@ -1,5 +1,5 @@
 CAMPAIGN_DIR = "./campaigns/"
-from classes import Player as P
+from classes.Player import Player
 import json
 class Campaign:
     def __init__(self, campaign_name):
@@ -9,17 +9,19 @@ class Campaign:
     def add_player(self, player):
         self.players[player.name] = player
 
-    def load_campaign(self):
-        file_path = CAMPAIGN_DIR + self.campaign_name + ".json"
+    @staticmethod
+    def load_campaign(campaign_name):
+        file_path = CAMPAIGN_DIR + campaign_name + ".json"
         try:
             f = open(file_path, "r")
             dic_campaign = json.load(f)
             f.close()
+            campaign = Campaign(campaign_name)
             for key in dic_campaign:
-                new_player = P.Player(key)
-                new_player.load_player()
-                new_player.hit_points = dic_campaign[key]
-                self.add_player(new_player)
+                player=Player.load_player(key)
+                player.hit_points = dic_campaign[key]
+                campaign.add_player(player)
+                return campaign
         except FileNotFoundError:
             print(file_path + " not found")
 
