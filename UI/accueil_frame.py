@@ -33,12 +33,12 @@ class Accueil_Frame:
 
     def create_new_campaign_button(self):
         new_campagne_button = Button(self.frame, text="Crée une nouvelle campagne", font=("Courrier", 25), bg='white',
-                                     fg='#41B77F', command=self.links['open_new_campagne'])
+                                     fg='#41B77F', command=self.links['open_new_campaign'])
         new_campagne_button.grid(pady=25)
 
     def load_campaign_button(self):
         load_campagne_button = Button(self.frame, text="Chargé une campagne", font=("Courrier", 25), bg='white',
-                                      fg='#41B77F', command=self.links['open_campagne'])
+                                      fg='#41B77F', command=self.links['open_campaign_load'])
         load_campagne_button.grid(pady=25)
 
     def create_new_player_button(self):

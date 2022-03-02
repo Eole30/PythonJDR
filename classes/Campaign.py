@@ -1,6 +1,6 @@
 CAMPAIGN_DIR = "./campaigns/"
 from classes.Player import Player
-import json
+import json ,os
 class Campaign:
     def __init__(self, campaign_name):
         self.players = {}
@@ -21,7 +21,7 @@ class Campaign:
                 player=Player.load_player(key)
                 player.hit_points = dic_campaign[key]
                 campaign.add_player(player)
-                return campaign
+            return campaign
         except FileNotFoundError:
             print(file_path + " not found")
 
@@ -33,6 +33,14 @@ class Campaign:
             parsed[key] = self.players[key].hit_points
         f.write(json.dumps(parsed))
         f.close()
+        print("Campaign saved")
+
+    def delete_campaign(self):
+        file_path = CAMPAIGN_DIR + self.campaign_name + ".json"
+        if os.path.exists(file_path):
+            os.remove(file_path)
+        else:
+            print("No campaign saved to this name")
 
     def __str__(self):
         res = "Campaign %s\n" % self.campaign_name

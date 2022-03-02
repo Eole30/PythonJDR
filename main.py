@@ -12,7 +12,7 @@ campaign = Campaign.load_campaign("Test")
 player.hit_points = 10
 #campaign.add_player(player)
 #campaign.save_campaign()
-print(campaign)
+#print(campaign)
 
 ##
 # partie UI
@@ -21,6 +21,8 @@ from tkinter import *
 from UI.accueil_frame import Accueil_Frame
 from UI.new_personnage_frame import New_Personnage_Frame
 from UI.new_campaign_frame import New_Campaign_Frame
+from UI.load_campaign_frame import Load_Campaign_Frame
+from UI.campaign_frame import Campaign_Frame
 
 class Main:
     def __init__(self):
@@ -33,28 +35,35 @@ class Main:
         self.window.iconbitmap("UI/ressource/D_D5_logo.ico")
         #self.window.config(bg='#41B77F')
         self.links = {
-            'open_new_campagne': self.open_new_campaign,
-            'open_campagne': self.open_campaign,
+            'open_new_campaign': self.open_new_campaign,
+            'open_campaign_load': self.open_campaign_load,
             'open_new_personnage': self.open_new_personnage,
             'open_accueil': self.open_accueil,
+            'open_campaign': self.open_campaign,
         }
 
         self.accueil_frame = Accueil_Frame(self.window, self.links)
         self.new_personnage_frame = New_Personnage_Frame(self.window, self.links)
         self.new_campaign_frame = New_Campaign_Frame(self.window, self.links)
+        self.load_campaign_frame = Load_Campaign_Frame(self.window, self.links)
+        self.open_campaign_frame = Campaign_Frame(self.window, self.links)
 
     def reset_all(self):
         self.accueil_frame.reset_frame()
         self.new_personnage_frame.reset_frame()
+        self.new_campaign_frame.reset_frame()
+        self.load_campaign_frame.reset_frame()
+        self.open_campaign_frame.reset_frame()
 
     def open_new_campaign(self):
         print("new_campaign")
         self.reset_all()
         self.new_campaign_frame.frame.grid(column = 0, row = 0)
 
-    def open_campaign(self):
+    def open_campaign_load(self):
         print("campaign")
         self.reset_all()
+        self.load_campaign_frame.frame.grid(column = 0, row = 0)
 
     def open_new_personnage(self):
         print("new_personnage")
@@ -64,6 +73,11 @@ class Main:
     def open_accueil(self):
         self.reset_all()
         self.accueil_frame.frame.grid(column = 0, row = 0)
+
+    def open_campaign(self, campaign):
+        self.reset_all()
+        self.open_campaign_frame.choosen_campaign(campaign)
+        self.open_campaign_frame.frame.grid(column=0, row=0, sticky="nw")
 
 
 main = Main()

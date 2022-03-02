@@ -63,4 +63,4 @@ class New_Campaign_Frame:
             if self.check_box_dict[player.name].get() == 1:
                 campaign.add_player(player)
         campaign.save_campaign()
-        #self.links['open_accueil']()
+        self.links['open_accueil']()
