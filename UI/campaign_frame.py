@@ -17,8 +17,8 @@ class Campaign_Frame:
         i = 0
         for player in campaign.players.values():
             print("bit "+player.name)
-            frame_player = Frame(self.frame, bg='#41B77F', borderwidth = 3)
-            frame_player.grid(column=i%2, row=int(i/2), sticky="w")
+            frame_player = Frame(self.frame, bg='#41B77F', borderwidth = 3, relief = "raised")
+            frame_player.grid(column=i%2, row=int(i/2), sticky="we")
 
             font1 = ("Courrier", 14)
             font2 = ("Courrier", 10)
